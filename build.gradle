@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.8'
+    }
+}
+
+plugins {
+    id "com.google.protobuf" version "0.8.8"
+    id "java"
+    id "application"
+    id "idea"
+}
+
+
+group 'gp-stream-server'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.protobuf:protobuf-java:3.6.1'
+    compile 'io.grpc:grpc-stub:1.18.0'
+    compile 'io.grpc:grpc-protobuf:1.18.0'
+    compile group: 'com.google.protobuf', name: 'protobuf-java-util', version: '3.6.1'
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+
+    // Extra proto source files besides the ones residing under
+    // "src/main".
+    protobuf files("src/")
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+protobuf {
+    protoc {
+        //path = '/usr/local/bin/protoc'
+        artifact = 'com.google.protobuf:protoc:3.6.1'
+    }
+
+    generatedFilesBaseDir = "$projectDir/src/generated"
+
+}
+
+run {
+    main = 'test.gpss.writing'
+}

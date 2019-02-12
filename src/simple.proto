@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option java_package = "test.gpss.greenplum";
+
+message store_sales {
+            int32 ss_sold_date_sk = 1;
+            int32 ss_sold_time_sk  = 2;
+            int32 ss_item_sk = 3;
+            int32 ss_customer_sk  = 4;
+            int32 ss_cdemo_sk  = 5;
+            int32 ss_hdemo_sk  = 6;
+            int32 ss_addr_sk  = 7;
+            int32 ss_store_sk  = 8;
+            int32 ss_promo_sk  = 9;
+            int64 ss_ticket_number   = 10;
+            int32 ss_quantity  = 11;
+            float ss_wholesale_cost = 12;
+            float ss_list_price = 13;
+            float ss_sales_price = 14;
+            float ss_ext_discount_amt = 15;
+            float ss_ext_sales_price = 16;
+            float ss_ext_wholesale_cost = 17;
+            float ss_ext_list_price = 18;
+            float ss_ext_tax = 19;
+            float ss_coupon_amt = 20;
+            float ss_net_paid = 21;
+            float ss_net_paid_inc_tax = 22;
+            float ss_net_profit = 23;
+}
+
+message StrData {
+    string data = 1;
+}
+
+message Row {
+    repeated DBValue Columns = 1;
+}
+
+message DBValue {
+    oneof DBType {
+        int32 Int32Value = 1;
+        int64 Int64Value = 2;
+        // uint32 Uint32Value = 3;
+        // uint64 Uint64Value = 4;
+        float Float32Value = 5;
+        double Float64Value = 6;
+        string StringValue = 7;
+        bytes BytesValue = 8;
+        // bool BoolValue = 9;
+        // google.protobuf.Timestamp TimeStampValue = 10;
+        // google.protobuf.NullValue NullValue = 11;
+        string OtherValue = 12;
+    }
+}
