@@ -48,6 +48,20 @@ protobuf {
 
 }
 
+mainClassName = 'test.gpss.writing'
+
+
 run {
-    main = 'test.gpss.writing'
+    main = "$mainClassName"
+}
+
+
+jar {
+    manifest {
+        attributes "Main-Class": "$mainClassName"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }

@@ -21,7 +21,7 @@ public class writing {
             long endTime = System.nanoTime();
 
             long duration = (endTime - startTime);
-            System.out.println("pb :" + (endTime - startTime)  + " ns");
+            System.out.println("pb\t:" + (endTime - startTime)  + " ns");
 
             os.close();
         } catch (IOException e) {
@@ -38,7 +38,7 @@ public class writing {
             long endTime = System.nanoTime();
 
             long duration = (endTime - startTime);
-            System.out.println("pb2:" + (endTime - startTime)  + " ns");
+            System.out.println("pb2\t:" + (endTime - startTime)  + " ns");
 
             os.close();
         } catch (IOException e) {
@@ -53,7 +53,7 @@ public class writing {
             long endTime = System.nanoTime();
 
             long duration = (endTime - startTime);
-            System.out.println("writing:" + (endTime - startTime) + " ns");
+            System.out.println("writing\t:" + (endTime - startTime) + " ns");
 
             os.close();
         } catch (IOException e) {
